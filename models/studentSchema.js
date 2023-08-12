@@ -1,15 +1,12 @@
 const mongoose = require('mongoose')
-const { default: isEmail } = require('validator/lib/isEmail')
 
 
 const studentSchema = new mongoose.Schema({
     name:String,
     email:{
         type:String,
-        validator: isEmail
     },
     password: String,
-    token:String,
     fatherName:String,
     motherName:String,
     fphone: String,
@@ -19,13 +16,12 @@ const studentSchema = new mongoose.Schema({
     address:String,
     scontact: String,
     rollNo:String,
-    class: String,
+    std: String,
     school: String,
-    batch:String,
     tests:[
         {
 
-            type: mongoose.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Test'
         }
     ]
